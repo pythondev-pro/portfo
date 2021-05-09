@@ -6,14 +6,14 @@ from pathlib import Path
 
 html = Template(Path('index.html').read_text())
 email = EmailMessage()
-email['from'] = 'pedro.meiodia@hotmail.fr'
-email['to'] = 'pedro.meiodia@hotmail.fr'
+email['from'] = 'your email'
+email['to'] = 'recepient email'
 email['subject'] = 'Give thanks!'
 
-email.set_content(html.substitute({'firstname': 'Brother', 'lastname':'Meio-Dia '}, home_name='(Dadinho)'), 'html')
+email.set_content(html.substitute({'firstname': 'Brother', 'lastname':'Dia '}, home_name='(Dadinho)'), 'html')
 
 with smtplib.SMTP(host='outlook-emeacenter3.office365.com', port=587) as smtp:
 	smtp.ehlo()
 	smtp.starttls()
-	smtp.login('pedro.meiodia@hotmail.fr', 'Qazwsx387')
+	smtp.login('your email login', 'your email password')
 	smtp.send_message(email)
