@@ -49,6 +49,3 @@ def submit_form():
             return 'Did not save to database'
     else:
         return "Something went wrong. Try again"
-
-
-app.run(use_reloader=False, debug=True)
